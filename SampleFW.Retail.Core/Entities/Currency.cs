@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SampleFW.Retail.Core.Entities
 {
+    [Table("Currency")]
     public class Currency : BaseEntity
     {
-        public string CurrencyID { get; set; }
+        public Currency()
+        {
+            IsHomeCurrency = false;
+        }
 
         public string Code { get; set; }
 

@@ -1,13 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace SampleFW.Retail.Core.Entities
 {
     public class BaseEntity
     {
+        public BaseEntity()
+        {
+            ID = Guid.NewGuid().ToString();
+
+            IsActive = true;
+
+            CreatedDate = DateTime.Now;
+        }
+
+        [Key]
+        public string ID { get; set; }
+
         public string CreatedUserID { get; set; }
 
         public DateTime CreatedDate { get; set; }

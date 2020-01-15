@@ -1,25 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SampleFW.Retail.Core.Entities
 {
+    [Table("Product")]
     public class Product : BaseEntity
     {
-        public string ProcuctID { get; set; }
-
         public string CodeName { get; set; }
 
         public string Description { get; set; }
 
         public string CategoryID { get; set; }
 
+        [ForeignKey("CategoryID")]
         public virtual Category Category { get; set; }
 
         public string CurrencyID { get; set; }
 
+        [ForeignKey("CurrencyID")]
         public virtual Currency Currency { get; set; }
 
         public decimal SellingPrice { get; set; }

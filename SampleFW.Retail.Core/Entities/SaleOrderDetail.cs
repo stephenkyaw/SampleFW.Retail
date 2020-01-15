@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SampleFW.Retail.Core.Entities
 {
+    [Table("SaleOrderDetail")]
     public class SaleOrderDetail : BaseEntity
     {
-        public string SaleOrderDetailID { get; set; }
+        public string SaleVourcherNo { get; set; }
 
         public string SaleOrderHeaderID { get; set; }
-
+        
+        [ForeignKey("SaleOrderHeaderID")]
         public virtual SaleOrderHeader SaleOrderHeader { get; set; }
-
-        public string SaleVourcherNo { get; set; }
 
         public string ProductID { get; set; }
 
+        [ForeignKey("ProductID")]
         public virtual Product Product { get; set; }
 
         public decimal SellingPrice { get; set; }
