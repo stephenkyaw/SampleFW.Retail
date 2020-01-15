@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SampleFW.Retail.Core.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SampleFW.Retail.Core.Entities
 {
@@ -19,9 +21,15 @@ namespace SampleFW.Retail.Core.Entities
 
         public string CreatedUserID { get; set; }
 
+        [ForeignKey("CreatedUserID")]
+        public virtual ApplicationUser CreatedUser { get; set; }
+
         public DateTime CreatedDate { get; set; }
 
         public string UpdatedUserID { get; set; }
+
+        [ForeignKey("UpdatedUserID")]
+        public virtual ApplicationUser UpdatedUser { get; set; }
 
         public DateTime UpdatedDate { get; set; }
 
