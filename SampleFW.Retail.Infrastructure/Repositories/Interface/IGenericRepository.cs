@@ -18,5 +18,7 @@ namespace SampleFW.Retail.Infrastructure
 
         void Remove(TEntity entity);
 
+        void Dispose();
+
     }
 }
